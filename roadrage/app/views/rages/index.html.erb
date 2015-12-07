@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plate number</th>
+      <th>Vehicleid</th>
+      <th>Rage</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rages.each do |rage| %>
+      <tr>
+        <td><%= rage.plate_number %></td>
+        <td><%= rage.vehicleid %></td>
+        <td><%= rage.rage %></td>
+        <td><%= rage.title %></td>
+        <td><%= link_to 'Show', rage %></td>
+        <td><%= link_to 'Edit', edit_rage_path(rage) %></td>
+        <td><%= link_to 'Destroy', rage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rage', new_rage_path %>

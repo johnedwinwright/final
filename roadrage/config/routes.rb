@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :rages
   devise_for :users
   root to: "home#index"
 

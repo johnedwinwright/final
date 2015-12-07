@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plate number:</strong>
+  <%= @rage.plate_number %>
+</p>
+
+<p>
+  <strong>Vehicleid:</strong>
+  <%= @rage.vehicleid %>
+</p>
+
+<p>
+  <strong>Rage:</strong>
+  <%= @rage.rage %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @rage.title %>
+</p>
+
+<%= link_to 'Edit', edit_rage_path(@rage) %> |
+<%= link_to 'Back', rages_path %>
