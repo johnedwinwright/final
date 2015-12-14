@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :vehicles
   resources :rages
-  devise_for :users
-  root to: "vehicles#index"
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
+  root to: "vehicles#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
