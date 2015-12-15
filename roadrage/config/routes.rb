@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root to: "vehicles#index"
 
+get 'vehicles/update_models', as: 'update_models'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

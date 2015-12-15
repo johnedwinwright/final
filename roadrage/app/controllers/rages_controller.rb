@@ -15,6 +15,9 @@ class RagesController < ApplicationController
   # GET /rages/new
   def new
     @rage = Rage.new
+    if params[:plate] ==
+      @rage.plate_number = params[:plate]
+    end
   end
 
   # GET /rages/1/edit

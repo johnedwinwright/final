@@ -1,5 +1,15 @@
 <h1>New Vehicle</h1>
 
+<%= puts @makes =%>
+<%= form_for :thing, url: {action: "new"}, html: {method: "get"} do |f| %>
+  <%= f.select :id, options_for_select(@makes.collect { |make|
+    [make['name'], make['id']] }, 1), {}, { id: ["makes_select"] } %>
+  <%= f.select :id, options_for_select(@models.collect { |model|
+    [model['name'], model['id']] }, 1), {}, { id: "models_select" } %>
+  <%= f.submit "Go!" %>
+<% end %>
+
+
 <%= render 'form' %>
 
 <%= link_to 'Back', vehicles_path %>

@@ -5,7 +5,20 @@ class VehiclesController < ApplicationController
   # GET /vehicles.json
   def index
     @vehicles = Vehicle.all
+    @makes = Edmunds::Make.new.find_all
+    if params[:makeid] ==
+      @models = Edmunds::Model.new.find_by_make_id(params[:makeid])
+    end
   end
+
+  def update_models
+    if params[:makeid] ==
+        @models = Edmunds::Model.new.find_by_make_id(params[:makeid])
+      end
+      respond_to do |format|
+        format.js
+      end
+    end
 
   # GET /vehicles/1
   # GET /vehicles/1.json
@@ -15,6 +28,11 @@ class VehiclesController < ApplicationController
   # GET /vehicles/new
   def new
     @vehicle = Vehicle.new
+    @makes = Edmunds::Make.new.find_all
+    if params[:makeid] ==
+      @models = Edmunds::Model.new.find_by_make_id(params[:makeid])
+    end
+    puts @models
   end
 
   # GET /vehicles/1/edit
@@ -28,7 +46,7 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
-        format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
+        format.html { redirect_to new_rage_path + "?plate=#{@vehicle.plate_number}", notice: 'Vehicle was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle }
       else
         format.html { render :new }
@@ -64,7 +82,7 @@ class VehiclesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
-      @vehicle = Vehicle.find(params[:id])
+      # @vehicle = Vehicle.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
