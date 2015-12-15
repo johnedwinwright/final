@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :plate_checks
   resources :vehicles
   resources :rages
   devise_for :users, :controllers => { registrations: 'registrations' }

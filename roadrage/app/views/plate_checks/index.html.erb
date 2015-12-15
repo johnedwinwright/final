@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Plate Checks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plate_checks.each do |plate_check| %>
+      <tr>
+        <td><%= plate_check.name %></td>
+        <td><%= link_to 'Show', plate_check %></td>
+        <td><%= link_to 'Edit', edit_plate_check_path(plate_check) %></td>
+        <td><%= link_to 'Destroy', plate_check, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plate check', new_plate_check_path %>
